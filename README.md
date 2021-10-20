@@ -1,6 +1,6 @@
 # Book Hunter
 
-![Logo!](BookHunter\src\assets\img\logo.png)
+![Logo!](Emanuel-js/BookHunter/blob/main/src/assets/img/logo.png)
 
 ## Introduction
 
