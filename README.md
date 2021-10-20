@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Book Hunter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Alt text](book-hunter\src\assets\img\logo.png?raw=true "Title")
+
+## Introduction
 
 ## Available Scripts
 
