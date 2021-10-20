@@ -1,0 +1,40 @@
+.banner-container{
+    display: flex;
+}
+.banner-left{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 100%;
+    color: #fff;
+    background:#40D89E;
+    clip-path: polygon(100% 0, 50% 100%, 0 100%, 0 0);
+}
+.banner-left h1{
+    font-size:36px;
+    margin-bottom: 20px;
+}
+.banner-left h1 span{
+    color: #3073D7;
+}
+.banner-left p{
+    font-size:24px;
+}
+.banner-left button{
+    height:50px;
+  margin-top: 30px;
+  width: 300px !important;
+}
+
+.banner-right{
+    background:url('../../assets/img/cover.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+    height: 85vh;
+    width: 40%;
+
+}

@@ -1,0 +1,77 @@
+.detail-container{
+display: flex;
+flex-direction: column;
+margin-top: 100px;
+}
+.detail-section{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cover img{
+    margin-right: 30px;
+    width: 300px;
+    height: 400px;
+}
+.detail{
+    margin-left: 30px;
+}
+.detail .title{
+    font-size: 30px;
+    font-weight: 500;
+}
+.detail sub-title{
+    font-size: 18px;
+margin-top: 10px;
+}
+.detail .disc{
+    margin-top: 40px;  
+    font-size: 16px;
+    max-width: 300px;
+}
+.co1,.btn-co1{
+    display: flex;
+    margin-top: 30px;
+    align-items: center !important;
+    justify-content:center;
+    text-align:center !important;
+    margin: 10px;
+}
+.btn-co1 .btn{
+    height:30px;
+    text-align: center;
+}
+
+.link-logo img{
+    width:50px;
+    height: 50px;
+    text-align: center;
+
+}
+
+
+.buy-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+}
+.related-section{
+display: flex;
+scroll-behavior: smooth;
+margin-top: 150px;
+padding-top: 80px;
+margin-bottom:30px;
+scroll-behavior: smooth;
+overflow-x: scroll;
+overflow-y: hidden;
+
+-ms-overflow-style: none;
+}
+.related-section::-webkit-scrollbar {
+    display: none;
+  }
+.related h2{
+    margin-top: 100px;
+    text-align: center;
+}
