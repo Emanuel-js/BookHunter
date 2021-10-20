@@ -1,6 +1,6 @@
 # Book Hunter
 
-![Logo](book-hunter\src\assets\img\logo.png?raw=true "Logo")
+![Logo](book-hunter\src\assets\img\logo.png)
 
 ## Introduction
 
