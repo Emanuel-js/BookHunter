@@ -72,10 +72,19 @@ text-decoration: none;
 
 
 
+.notfound{
 
+  text-align: center;
+  margin: 20% auto;
+  font-size: 30px;
+  font-weight: 500;
+}
 
+.center{
+  text-align: center;
+  margin:20% auto;
+}
 
-  
   /* loading animation */
 
   .loader {

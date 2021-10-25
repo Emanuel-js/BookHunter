@@ -2,10 +2,12 @@ import React,{useState} from 'react'
 import './header.css';
 import logo from '../../assets/img/logo.png';
 import { Link,NavLink,useHistory } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 function Header() {
     const history = useHistory();
     const [query, setQuery] = useState('');
-    const [type,setType]=useState('title');
+    const [type, setType] = useState('title');
+    const {logout,currentUser } = useAuth();
     const handleSearch = () =>{ 
         let path = `/search`;
         // console.log(query);
@@ -30,8 +32,8 @@ function Header() {
                 <ul className="menu" activeClassName="active">
                     <NavLink exact to="/"activeClassName="active"><li>Home</li></NavLink>
                     <NavLink to="/book"activeClassName="active"><li>Books</li></NavLink>
-                    <NavLink to="/myFav"activeClassName="active"><li>MyFav</li></NavLink>
-                    <NavLink to="/reding"activeClassName="active"><li>NowReading</li></NavLink>
+                {currentUser && <NavLink to="/myFav" activeClassName="active"><li>MyFav</li></NavLink>}
+                {currentUser && <NavLink to="/reding" activeClassName="active"><li>NowReading</li></NavLink>}
                     <NavLink to="/about" activeClassName="active"><li>AboutUs</li></NavLink>
 
                 </ul>
@@ -51,8 +53,12 @@ function Header() {
                 </div>
             </div>
 
-          
-            <button className="btn btn-sec">register</button>
+        {
+                currentUser === null ? <Link to="/register"> <button className="btn btn-sec">register</button></Link> :
+                <Link to="/register"> <button className="btn btn-sec" onClick={logout}>Logout</button></Link>
+
+        
+        }
         </div>
     )
 }

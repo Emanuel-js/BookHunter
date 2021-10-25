@@ -4,6 +4,7 @@ import axios from 'axios';
 import './book.css';
 import Cards from '../components/Cards';
 import config from '../config/config';
+import Header from './commen/header';
 
 
 function Books() {
@@ -38,6 +39,8 @@ function Books() {
     }
 
     return (
+        <>
+            <Header/>
         <div className="book-container">
             <div>Filter Books
                 <select value={value} onChange={handleChange} className="select-menu">
@@ -58,7 +61,8 @@ function Books() {
               }
           </div>
            
-        </div>
+            </div>
+            </>
     )
 }
 

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import config from '../config/config';
 import Card from '../components/card';
+import Header from './commen/header';
 
 function Search() {
     const location = useLocation();
@@ -40,6 +41,8 @@ function Search() {
     }
 
     return (
+         <>
+            <Header/>
         <div className="search-container">
             {
             //   display()
@@ -48,7 +51,8 @@ function Search() {
                     return  <Card books={book} published_date={book.published_dt} key={book.isbn13[i]}/>
                     }):<div className="loader"></div>
             }
-        </div>
+            </div>
+            </>
     )
 }
 

@@ -57,6 +57,10 @@ color:#fff;
 height: 40px;
 cursor: pointer;
 text-align:center;
+transition: all 0.3s ease-in-out;
+}
+.btn:hover{
+  opacity: 0.6;
 }
 .btn-prim{
     background: #40D89E;

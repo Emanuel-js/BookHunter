@@ -5,6 +5,7 @@ import Banner from './commen/banner';
 import List from '../components/lists';
 import Card from '../components/card';
 import config from '../config/config';
+import Header from './commen/header';
 
 const Home = () => {
     const [newBook, setNewBook] = useState([]);
@@ -13,9 +14,6 @@ const Home = () => {
 
 
     useEffect(() => {
-        // const APIKEY = "x2esQNAYiMY5mz3ArTz5uJ3q4FizdL7l";
-        // const url = 'https://api.nytimes.com/svc/books/v3/lists/';
-        
         const getNewBooks = async () => {
             await axios.get(`${config.url}lists/current/hardcover-fiction.json?api-key=${config.APIKEY}`)
                         .then((d) =>setNewBook(d.data.results));
@@ -34,6 +32,7 @@ const Home = () => {
 
     return (
         <>
+            <Header/>
             <Banner />
        {newBook && bestSell  !==[]?<div className="home-container">
                 <div className="top-1">
