@@ -1,14 +1,14 @@
 import React,{useState,useEffect} from 'react'
 import { useLocation } from "react-router-dom";
-import { setDoc, doc } from "firebase/firestore";
-import {db} from '../config/firebase';
+import { db } from '../config/firebase';
+import {setDoc,doc,collection} from 'firebase/firestore'
 import axios from "axios"
 import cover from '../assets/img/cover.jpg';
 import './detail.css';
 import blogo from '../assets/img/BarnesandNoble.png';
 import bookLo from '../assets/img/bookm.png';
 import Card from '../components/card';
-import config from '../config/config';
+import {APIKEY,url } from '../config/config';
 import Header from './commen/header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,10 +21,11 @@ function Detail() {
     const { currentUser} = useAuth();
 
     let location = useLocation();
-    const  {book,published_date}  = location?.state
+    const { book, published_date } = location?.state
+    // console.log(book.isbn13[0]);
     useEffect(() => {
         const getrelated = async () => {
-            await axios.get(`${config.url}reviews.json?author=${book.author}&api-key=${config.APIKEY}`)
+            await axios.get(`${url}reviews.json?author=${book.author}&api-key=${APIKEY}`)
                            .then((d) => 
                            {
                                setRelatedBook(d.data.results)
@@ -35,15 +36,16 @@ function Detail() {
 
 // add book to reading db
     const addToRead = async (book) => {
-    if (currentUser) {
-        try { 
-            const docRef = await setDoc(doc(db, "Reading", `${book.primary_isbn10}`), {
+        if (currentUser) {
+            
+            try {
+            const docRef = await setDoc(doc(db, `Reading/${currentUser.uid}`, "reading",`${book?.primary_isbn10 || book?.isbns[0].isbn10 || book?.isbn13[0]}`), {
               UID: currentUser.uid,
               book:book,
               isFinished: false,
             }).then(() => toast.success("Book is Added!", { hideProgressBar: true, autoClose: 1500,theme:'dark'}) );
-        } catch (e) {
-            toast.warn(e.message, { hideProgressBar: true, autoClose:1000,theme:'dark'})
+        }catch (e) {
+            toast.warn("please try again later", { hideProgressBar: true, autoClose:1000,theme:'dark'})
           }
     } else {
         toast.warn("please register or login first!", { hideProgressBar: true, autoClose: 1500,theme:'dark'}) 
@@ -52,13 +54,13 @@ function Detail() {
     const AddToFav = async(book) => {
         if (currentUser) {
             try { 
-                const docRef = await setDoc(doc(db, "Favorite", `${book.primary_isbn10}`), {
+                const docRef = await setDoc(doc(db, `Favorite/${currentUser.uid}`, "favorite",`${book?.primary_isbn10 ||book?.isbns[0].isbn10 || book?.isbn13[0]}`), {
                   UID: currentUser.uid,
                   book:book,
-               
+                  bookId:book?.primary_isbn10 || book?.isbns[0].isbn10 || book.isbn13[0]
                 }).then(() => toast.success("your Favorite Book is Added!", { hideProgressBar: true, autoClose: 1500,theme:'dark'}) );
             } catch (e) {
-                toast.warn(e.message, { hideProgressBar: true, autoClose:1000,theme:'dark'})
+                toast.warn("please try again later", { hideProgressBar: true, autoClose:1000,theme:'dark'})
               }
         } else {
             toast.warn("please register or login first!", { hideProgressBar: true, autoClose: 1500,theme:'dark'}) 
@@ -110,14 +112,17 @@ function Detail() {
                             })
                 }
                 </div>:<></>}
-            </div>
-            <div className="related">
-                <h2>Related Books📚</h2>
-                <div className="related-section">
-   {relatedBook !==[]? relatedBook.map((book,i)=> <Card books={book} published_date={book.published_dt} key={book.isbn13[i]}/>):<div>No related book 😞</div>
-}
                 </div>
-            </div>
+                {relatedBook?.length > 0 ?<div className="related">
+                    
+                        <h2>Related Books📚</h2>
+                        <div className="related-section">
+                       {  relatedBook.map((book, i) => <Card books={book} published_date={book.published_dt} key={book.isbn13[i]} />)}
+                        </div>
+                    
+                    </div>:<div className="title" style={{ textAlign: 'center', margin: '50px auto' }}>No related book 😞</div>
+
+                }
             </div>
             </>
     )

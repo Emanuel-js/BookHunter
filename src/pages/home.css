@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: 100%;
 }
 
 .top-1{
@@ -9,13 +10,17 @@
 display: flex;
 align-items: center;
 justify-content: space-around;
+flex-wrap: wrap-reverse;
+
 }
 
 .top-2{
     display: flex;
     flex-direction: column;
     align-items:center;
-    margin-top: 230px;
+    margin-top: 130px;
+    flex-wrap: wrap;
+
 }
 
 .popular-author{
@@ -82,7 +87,25 @@ text-decoration: none;
 
 .center{
   text-align: center;
-  margin:20% auto;
+  margin:10% auto;
+}
+
+
+/* about section */
+
+.about-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  
+}
+.paragraph{
+  margin-top:20px;
+  width: 50%;
+  letter-spacing:1px;
+  word-spacing: 2px;
+
 }
 
   /* loading animation */

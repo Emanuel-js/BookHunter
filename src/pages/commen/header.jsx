@@ -3,6 +3,8 @@ import './header.css';
 import logo from '../../assets/img/logo.png';
 import { Link,NavLink,useHistory } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Header() {
     const history = useHistory();
     const [query, setQuery] = useState('');
@@ -11,6 +13,9 @@ function Header() {
     const handleSearch = () =>{ 
         let path = `/search`;
         // console.log(query);
+        if (query == '') {
+           return toast.warn("please provide a query", { hideProgressBar: true, autoClose: 1500, theme: 'dark' });
+        }
        history.push({
           pathname: path,
           state: {  // location state
@@ -21,7 +26,7 @@ function Header() {
         setQuery('');
     }
      
-  
+ 
     
     return (
         <div className="header-container">
@@ -29,19 +34,18 @@ function Header() {
                 <img src={logo} alt="logo" />
             </Link>
             
-                <ul className="menu" activeClassName="active">
-                    <NavLink exact to="/"activeClassName="active"><li>Home</li></NavLink>
-                    <NavLink to="/book"activeClassName="active"><li>Books</li></NavLink>
+                <ul className="menu" >
+                    <NavLink exact to="/" activeClassName="active"><li>Home</li></NavLink>
+                    <NavLink to="/book" activeClassName="active"><li>Books</li></NavLink>
                 {currentUser && <NavLink to="/myFav" activeClassName="active"><li>MyFav</li></NavLink>}
                 {currentUser && <NavLink to="/reding" activeClassName="active"><li>NowReading</li></NavLink>}
-                    <NavLink to="/about" activeClassName="active"><li>AboutUs</li></NavLink>
 
                 </ul>
             
-           
+           <ToastContainer/>
 
-            <div class="search-form ">
-                <input type="search" value={query} onChange={(e)=>setQuery(e.target.value)}/>
+            <div className="search-form ">
+                <input type="search" value={query} onChange={(e)=>  setQuery(e.target.value) }/>
 
                 <div className="dropdown">
                     <button onClick={handleSearch} className="btn btn-prim" >search 🔽</button>
@@ -63,4 +67,4 @@ function Header() {
     )
 }
 
-export default Header
+export default Header;

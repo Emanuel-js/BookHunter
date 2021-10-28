@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import Login from './login';
 import "./style.css";
 import { ToastContainer, toast } from 'react-toastify';

@@ -3,13 +3,10 @@ import { auth } from '../config/firebase';
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    sendPasswordResetEmail,
     onAuthStateChanged,
     signInWithPopup,
     GoogleAuthProvider,
-    signOut,
-  confirmPasswordReset,
-  
+    signOut,  
 } from 'firebase/auth';
 
 const AuthContext = createContext({
@@ -19,8 +16,7 @@ const AuthContext = createContext({
     login: () => Promise,
     register: () => Promise,
     logout: () => Promise,
-    forgotPassword: () => Promise,
-    resetPassword: () => Promise,
+
   })
 export const useAuth = () => useContext(AuthContext)
 
@@ -36,10 +32,6 @@ export default function AuthContextProvider({ children }) {
       }
     }, [])
   
-    useEffect(() => {
-      console.log('The user is', currentUser)
-    }, [currentUser])
-  
     function login(email, password) {
       return signInWithEmailAndPassword(auth, email, password,)
     }
@@ -51,21 +43,8 @@ export default function AuthContextProvider({ children }) {
                 const user = userCredential.user;
                 user.displayName = name;
               user.photoURL = profile;
-            });
-      
+            });   
   }
-  
-
-  
-    function forgotPassword(email) {
-      return sendPasswordResetEmail(auth, email, {
-        url: `http://localhost:3000/login`,
-      })
-    }
-  
-    function resetPassword(oobCode, newPassword) {
-      return confirmPasswordReset(auth, oobCode, newPassword)
-    }
   
     function logout() {
       return signOut(auth)
@@ -82,9 +61,6 @@ export default function AuthContextProvider({ children }) {
       login,
       register,
       logout,
-      forgotPassword,
-      resetPassword,
-      
     }
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
   }

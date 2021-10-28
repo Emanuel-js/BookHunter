@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import logo from '../../assets/img/logo.png';
 import {Link,useHistory } from "react-router-dom";
-import {auth} from "../../config/firebase";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from "../../contexts/AuthContext";

@@ -1,15 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import './card.css';
 import cover from '../assets/img/cover.jpg';
 
 function Card({ books,published_date} ) {
- 
+  const [islike, setislike] = useState(false);
+
   return (
   <div>
     {
         books !== null ?
-      <div   className="card-container">
+      <div className="card-container">
           <Link to={{
             pathname: '/detail',
             state:{book:books,published_date}
@@ -25,8 +26,7 @@ function Card({ books,published_date} ) {
       </div>
       <div className="more">
         <div className="like icon">
-        <img src="https://img.icons8.com/color/48/000000/like--v3.png" alt="like"/>
-        </div>
+        <img onClick={()=> setislike(!islike)} src={islike?"https://img.icons8.com/color/48/000000/like--v3.png":"https://img.icons8.com/ios-glyphs/24/000000/like--v2.png"} alt="like"/>        </div>
       </div>
     </div>:<div></div>
       }

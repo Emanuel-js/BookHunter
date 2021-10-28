@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import config from '../config/config';
+import {APIKEY,url} from '../config/config';
 import Card from '../components/card';
 import Header from './commen/header';
 
@@ -15,7 +15,7 @@ function Search() {
     useEffect(() => {
        
         const searchBook =async () => {
-            await axios.get(`${config.url}reviews.json?${type}=${query}&api-key=${config.APIKEY}`)
+            await axios.get(`${url}reviews.json?${type}=${query}&api-key=${APIKEY}`)
                 .then(d => {
                     console.log(d.data)
                     setSearch(d.data.results);
@@ -27,16 +27,16 @@ function Search() {
 
 
     const display = () => {
-        console.log(isload,search)
-        if (search !== [] && isload) {
-            search.map((book, i) => {
-                return  <Card books={book} published_date={book.published_dt} key={book.isbn13[i]}/>
-                })
+        console.log(search.results);
+        if (search.length > 0) {
+            return search.map((book, i) => {
+                return <Card books={book} published_date={book.published_dt} key={book.isbn13[i]} />
+            });
         }
         else if (isload === false) {
             return <div className="loader"></div>
         } else {
-            <div className="error">/reviews.json?title=Becoming</div>
+          return  <div className="title center">No data found</div>   
         }
     }
 
@@ -45,15 +45,18 @@ function Search() {
             <Header/>
         <div className="search-container">
             {
-            //   display()
-
-                search !==[] && isload ?search.map((book, i) => {
-                    return  <Card books={book} published_date={book.published_dt} key={book.isbn13[i]}/>
-                    }):<div className="loader"></div>
+               display()
             }
+            
             </div>
             </>
     )
 }
 
 export default Search
+
+
+
+// !isload? search.length > 0? search.map((book, i) => {
+//     return  <Card books={book} published_date={book.published_dt} key={book.isbn13[i]}/>
+//     }):<div className="title center">No data found</div>:<div className="loader"></div>

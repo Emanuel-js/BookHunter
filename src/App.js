@@ -16,13 +16,14 @@ import notfoundPage from './pages/notfoundPage';
 import AuthContextProvider, { useAuth } from './contexts/AuthContext';
 import myFav from './pages/myFav';
 import nowReding from './pages/nowReding';
+import Footer from './pages/commen/footer';
 
 
 const App = () => {
 
     function ProtectedRoute(props) {
         const { currentUser } = useAuth()
-        const { path } = props
+        const {path} = props
         console.log('path', path)
         const location = useLocation()
         console.log('location state', location.state)
@@ -32,7 +33,7 @@ const App = () => {
     
         ) {
           return currentUser ? (
-            <Redirect to={location.state?.from ?? '/'} />
+            <Redirect to={location.state?.from ?? path} />
           ) : (
             <Route {...props} />
           )
@@ -63,8 +64,10 @@ const App = () => {
                     <ProtectedRoute exact path='/reding' component={nowReding} />
                     <Route exact path='*' component={notfoundPage} />
 
-                 </Switch>
-            </div>
+            </Switch>
+       
+          </div>
+        
         </Router>
     </AuthContextProvider>
     )
