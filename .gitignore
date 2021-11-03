@@ -7,7 +7,7 @@
 .env
 # testing
 /coverage
-
+.firebase
 # production
 /build
 
