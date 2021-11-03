@@ -39,3 +39,20 @@ scroll-behavior: smooth;
 .list-of-auther::-webkit-scrollbar{
     display: none;
   }
+
+
+
+
+
+
+
+  .sub-post{
+      display: flex !important;
+  }
+  .container-container{
+      display: flex !important;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content:space-around;
+      margin: 20px;
+  }

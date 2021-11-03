@@ -22,7 +22,7 @@ function Cards({ books, published_date, isfav, deleteData, reading, completed, c
                     {/* <div className="sub-title">Share to social media</div>  */}
                     <FacebookShareButton url={books?.buy_links[0].url}
                         quote="I love this book please read it!"
-                        hashtag={"#bestBook", "#reading","#bookHunter"}
+                        hashtag={"#bestBook"}
                     >
                     <FacebookIcon width="50" height="50"round ={true} />
                     </FacebookShareButton>
@@ -34,7 +34,7 @@ function Cards({ books, published_date, isfav, deleteData, reading, completed, c
                    
                     <TwitterShareButton url={books?.buy_links[0].url}
                         quote="I love this book please read it!"
-                        hashtag={"#bestBook", "#reading","#bookHunter"}
+                        hashtag={"#bestBook"}
                     >
                     <TwitterIcon width="50" height="50"round ={true} />
                     </TwitterShareButton>

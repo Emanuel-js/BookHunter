@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import Login from './login';
 import "./style.css";
+import { useHistory} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../../contexts/AuthContext';
@@ -12,8 +13,9 @@ function Register() {
     const [password, setPassword] = useState('');
     const [profile, setProfile] = useState('');
     const [name, setName] = useState('');
-    const [isSubmit, setIsSubmit] = useState(false);
-    const {register,currentUser,signInWithGoogle} =useAuth();
+    const { register } = useAuth();
+    const history = useHistory();
+
    // get imag url 
   const onImageChange = (event) => {
       if (event.target.files && event.target.files[0]) {
@@ -32,7 +34,6 @@ function Register() {
         }
         else {
          
-            setIsSubmit(true);
           
             //  const id = toast.loading("Please wait...")
             //  toast.update(id, { render: "All is good", type: "success", isLoading: !isSubmit });
@@ -41,16 +42,13 @@ function Register() {
                 .then(res => {
                     toast.success("you are successfully registered 🏃‍♀️", { hideProgressBar: true, autoClose: 1500,theme:'dark'})
                     // currentUser.sendEmailVerification();
-                   
+                    history.push('/')
                     reset();
                 })
                 .catch(error => {
-                    setIsSubmit(false)
                     toast.dark(`⚠️${error.message}`, { hideProgressBar: true, autoClose: 1500, })
                 })
-                .finally(() => {
-                    setIsSubmit(false)
-                });
+             
         }
      
     }
@@ -69,7 +67,7 @@ function Register() {
                     Create Account 🚀
                 </div>
              
-                <form className="form-control" onSubmit={handleRegister}>
+                <form className="form-controls" onSubmit={handleRegister}>
                     <input type="text" className="form-control" name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Full Name" required/>
                     <input type="email" className="form-control" name="email"value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required/>
                     <input type="password" className="form-control" name="password" value={password} onChange={e => setPassword(e.target.value)}placeholder="Password"required />
@@ -78,7 +76,7 @@ function Register() {
 
                    {profile? <img src={profile} alt="" style={{width:50,height:50} }/>:""}
                     <input type="file" className="form-control" name="profile"  onChange={onImageChange} placeholder="Profile" />
-                <button type="submit" className="btn btn-prim">Register</button>
+                <button type="submit" className="btn-custom btn-prim">Register</button>
 
                 </form>
             </div>

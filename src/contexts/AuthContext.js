@@ -52,7 +52,7 @@ export default function AuthContextProvider({ children }) {
   
     function signInWithGoogle() {
       const provider = new GoogleAuthProvider()
-      return signInWithPopup(auth, provider)
+      return signInWithPopup(auth, provider).then(() => {}).catch(err => {console.error(err)})
   }
  
     const value = {

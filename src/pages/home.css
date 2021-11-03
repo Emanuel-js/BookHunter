@@ -95,10 +95,10 @@ text-decoration: none;
 
 .about-container{
   display: flex;
+  
   flex-direction: column;
   justify-content: center;
   align-items:center;
-  
 }
 .paragraph{
   margin-top:20px;
@@ -107,6 +107,17 @@ text-decoration: none;
   word-spacing: 2px;
 
 }
+
+
+@media (max-width: 676px){
+  /* .home-footer{
+    margin-top: 800px !important;
+  } */
+  .paragraph{
+    width: 90%;
+  }
+}
+
 
   /* loading animation */
 

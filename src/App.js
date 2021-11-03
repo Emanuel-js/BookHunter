@@ -16,17 +16,17 @@ import notfoundPage from './pages/notfoundPage';
 import AuthContextProvider, { useAuth } from './contexts/AuthContext';
 import myFav from './pages/myFav';
 import nowReding from './pages/nowReding';
-import Footer from './pages/commen/footer';
-
+import Library from './pages/library';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 
     function ProtectedRoute(props) {
         const { currentUser } = useAuth()
         const {path} = props
-        console.log('path', path)
+     
         const location = useLocation()
-        console.log('location state', location.state)
+       
       
         if (
           path === '/register' 
@@ -62,6 +62,7 @@ const App = () => {
                     <ProtectedRoute path="/register" exact component={Register} />
                     <ProtectedRoute exact path='/myFav' component={myFav} />
                     <ProtectedRoute exact path='/reding' component={nowReding} />
+                    <ProtectedRoute exact path='/library' component={Library} />
                     <Route exact path='*' component={notfoundPage} />
 
             </Switch>

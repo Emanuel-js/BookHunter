@@ -80,6 +80,15 @@ margin: 20px;
     border-radius: 50%;
 }
 
+.mr-t{
+    margin-top:10px;
+}
+.mr-l{
+    margin-left: 10px;
+}
+.mr-r{
+    margin-right: 10px;
+}
 
 @media(max-width:767px){
     .banner-left h1{

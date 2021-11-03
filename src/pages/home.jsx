@@ -74,13 +74,17 @@ const Home = () => {
                             }
                     </div>
                 </div>
+                <div className=""><About /></div>
+
+                <div className=""> <Footer /></div>
+
             </div> : <div className="loader"></div>
             }
-            <div style={{ marginTop: 440 }}>
-            <About/>
-            <Footer/>
+            {/* <div style={{ marginTop: 440 }}>
 
-           </div>
+            </div> */}
+         
+
         </>
     )
  }

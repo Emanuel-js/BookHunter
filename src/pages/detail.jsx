@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useLocation } from "react-router-dom";
 import { db } from '../config/firebase';
-import {setDoc,doc,collection} from 'firebase/firestore'
+import {setDoc,doc} from 'firebase/firestore'
 import axios from "axios"
 import cover from '../assets/img/cover.jpg';
 import './detail.css';
@@ -39,7 +39,7 @@ function Detail() {
         if (currentUser) {
             
             try {
-            const docRef = await setDoc(doc(db, `Reading/${currentUser.uid}`, "reading",`${book?.primary_isbn10 || book?.isbns[0].isbn10 || book?.isbn13[0]}`), {
+            await setDoc(doc(db, `Reading/${currentUser.uid}`, "reading",`${book?.primary_isbn10 || book?.isbns[0].isbn10 || book?.isbn13[0]}`), {
               UID: currentUser.uid,
               book:book,
               isFinished: false,
@@ -54,7 +54,7 @@ function Detail() {
     const AddToFav = async(book) => {
         if (currentUser) {
             try { 
-                const docRef = await setDoc(doc(db, `Favorite/${currentUser.uid}`, "favorite",`${book?.primary_isbn10 ||book?.isbns[0].isbn10 || book?.isbn13[0]}`), {
+                 await setDoc(doc(db, `Favorite/${currentUser.uid}`, "favorite",`${book?.primary_isbn10 ||book?.isbns[0].isbn10 || book?.isbn13[0]}`), {
                   UID: currentUser.uid,
                   book:book,
                   bookId:book?.primary_isbn10 || book?.isbns[0].isbn10 || book.isbn13[0]

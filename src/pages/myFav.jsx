@@ -9,22 +9,20 @@ import { useAuth } from '../contexts/AuthContext';
 function MyFav() {
 
     const [book, setbook] = useState([]);
-    const [count, setCount] = useState(0);
-    const [isload, setisload] = useState(false);
-    // let books = [];
+
     const { currentUser } = useAuth();
 
     useEffect(() => {
         const getData = async () => {
             const querySnapshot = await getDocs(collection(db, `Favorite/${currentUser?.uid}`,"favorite"));
             querySnapshot.forEach((doc) => {
-                console.log(doc.data())
+                console.log(doc)
                 setbook(old =>[...old,doc.data().book]);
             });
         }
       
         getData();
-    }, []);
+    }, [currentUser?.uid]);
     function refreshPage() {
         window.location.reload(false);
     }

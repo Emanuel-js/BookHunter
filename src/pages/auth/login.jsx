@@ -9,7 +9,6 @@ function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isSubmit, setIsSubmit] = useState(false);
     const {login,signInWithGoogle} =useAuth();
     const history = useHistory();
     const handleLogin = async (e) => {
@@ -19,7 +18,6 @@ function Login() {
         {
           toast.warn("Credentials not valid",{hideProgressBar: true,autoClose: 1500,theme:'dark'})    
         }
-        setIsSubmit(true)
         login(email, password)
           .then(res => {
               toast.success("welcome back", { hideProgressBar: true, autoClose: 1500, theme: 'dark' });
@@ -30,10 +28,7 @@ function Login() {
           .catch(error => {
             toast.warn(error.message,{hideProgressBar: true,autoClose: 1500,theme:'dark'})    
           })
-          .finally(() => {
         
-            setIsSubmit(false)
-          })
         
       
     }
@@ -43,11 +38,7 @@ function Login() {
             history.push('/')
         })
     }
-    // const githubRegister = () => {
-    //     signInWithGithub().then((res) => {
-    //         toast.success("you are successfully signIn ", { hideProgressBar: true, autoClose: 1500,theme:'dark'})
-    //     })
-    // }
+ 
     return (
         <div className="left-side">
             <Link to="/" className="logo">
@@ -58,13 +49,13 @@ function Login() {
             </div>
             <div className="social-media">
                 <div className="icons" onClick={googlRegister}>
-                    <img src="https://img.icons8.com/bubbles/50/000000/google-logo.png" />
+                    <img src="https://img.icons8.com/bubbles/50/000000/google-logo.png" alt="Google" />
                 </div>
                
             </div>
                 
             <div className="label">or use your Email</div>
-            <form className="form-control" onSubmit={handleLogin}>
+            <form className="form-controls" onSubmit={handleLogin}>
                 <input type="email" className="form-control"
                  value={email}
                  onChange={(e) => setEmail(e.target.value)}
@@ -75,7 +66,7 @@ function Login() {
                     name="password" placeholder="Password" required />
                                   <ToastContainer />
 
-                <button type="submit" className="btn btn-sec">Login</button>
+                <button type="submit" className="btn-custom btn-sec">Login</button>
             </form>
         </div>
     );

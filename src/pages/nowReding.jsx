@@ -11,7 +11,6 @@ function NowReading() {
 
     const [book, setbook] = useState([]);
     const [isbookComlete, setIsbookComlete] = useState(false);
-    const [comments, setComments] = useState([]);
 
     // let books = [];
     const { currentUser } = useAuth();
@@ -28,7 +27,7 @@ function NowReading() {
         }
       
         getData();
-    }, []);
+    }, [currentUser?.uid]);
     function refreshPage() {
         window.location.reload(false);
     }
@@ -52,9 +51,7 @@ function NowReading() {
 
         });
     }
-    const comment = (id) => {
-        
-    }
+   
     return (
         <div>
             <ToastContainer />
@@ -63,7 +60,7 @@ function NowReading() {
             {
                book?.length !== 0? book.map((book,id) => {
                 // // setbook(doc.data());
-                   return <Cards key={id} isFinished={book.isFinished} books={book.book} deleteData={deleteData} isfav={true} reading={true} completed={completed} comment={comment}/>
+                   return <Cards key={id} isFinished={book.isFinished} books={book.book} deleteData={deleteData} isfav={true} reading={true} completed={completed}/>
                }) : <div className="title center">No Book To Read Is Here! 🍮
 
                     </div> 

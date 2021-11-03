@@ -7,7 +7,7 @@ height: 550px;
 width: 60%;
 box-shadow: 10px 5px 5px rgba(221, 221, 221, 0.103);
 border-radius: 25px ;
-background: #4CAF50;
+/* background: #4CAF50; */
 margin-top: 30px;
 position: relative;
 }
@@ -19,7 +19,12 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 color: #fff;
+border-bottom-left-radius: 25px ;
+border-top-left-radius: 25px ;
+
 padding: 20px;
+background: #4CAF50;
+
 }
 .right-side{
 display:flex;
@@ -33,16 +38,18 @@ background:rgb(240, 235, 235);
 border-top-right-radius:25px;
 border-bottom-right-radius:25px;
 }
-.form-control{
+.form-controls{
     display:flex;
     flex-direction: column;
     justify-content: center;
+    align-items: space-between;
 }
-.form-control input{
+.form-controls input{
     padding:10px 20px;
     margin: 10px;
     border-color:#4CAF50 ;
     border-radius: 15px;
+
 }
 .lable{
     text-align:start;
@@ -78,7 +85,19 @@ border-bottom-right-radius:25px;
 }
 
 
-
+@media (max-width: 768px) {
+  .register-container{
+flex-direction: column;
+    width:90vh;
+margin-top: 240px;
+border-radius:0px;
+  }
+  .left-side .logo{
+    position: absolute;
+    top: -220px;
+    left:40%;
+  }
+}
 
 
 /* toast message */

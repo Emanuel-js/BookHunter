@@ -11,7 +11,7 @@ Book Hunter introduces good books with proper ratings, reviews and your category
 Book Hunter may help you to get the perfect book for your needs but it can’t provide a download file or pdf format ,so if you want to buy or read it you have to find another way.
 When you are not sure what book to read next, this is the right place for you. Book Hunter clarifies what book you have to read next .Book Hunter can be used by anyone who can use the internet.
            </div>
-           <a href="https://github.com/Emanuel-js/BookHunter.git" className="link" target="_blank" rel="noreferrer" ><button className="btn btn-prim ">Project Repo</button> </a>
+           <a href="https://github.com/Emanuel-js/BookHunter.git" className="link" target="_blank" rel="noreferrer" ><button className="btn-custom btn-prim ">Project Repo</button> </a>
         </div>
     )
 }

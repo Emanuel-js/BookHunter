@@ -27,7 +27,6 @@ function Search() {
 
 
     const display = () => {
-        console.log(search.results);
         if (search.length > 0) {
             return search.map((book, i) => {
                 return <Card books={book} published_date={book.published_dt} key={book.isbn13[i]} />
