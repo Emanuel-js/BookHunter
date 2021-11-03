@@ -32,7 +32,6 @@ function NowReading() {
         window.location.reload(false);
     }
     const deleteData = async (id) => {
-        console.log(id);
 
         await deleteDoc(doc(db, `Reading/${currentUser.uid}`,"reading", id)).then((res) =>
         {

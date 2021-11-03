@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import cover from '../assets/img/cover.jpg';
 import { FacebookIcon,FacebookShareButton,TelegramShareButton,TelegramIcon,TwitterShareButton,TwitterIcon} from 'react-share';
 
-function Cards({ books, published_date, isfav, deleteData, reading, completed, comment,isFinished}) {
+function Cards({ books, published_date, isfav, deleteData, reading, completed,isFinished}) {
     const [islike, setislike] = useState(false);
+    console.log(isFinished);
     return (
         <div className={`cards-container ${isFinished?"completed":"notcompleted"}`}>
             <Link  to={{
@@ -41,6 +42,12 @@ function Cards({ books, published_date, isfav, deleteData, reading, completed, c
                 </div>
                 
                 }
+                 
+            {reading?<div className="btn-co2">
+                     
+                     {  !isFinished? <button className="btn-custom btn-prim" onClick={(e) => completed(books?.primary_isbn10 || books?.isbns[0].isbn10 || books.isbn13[0])}>completed</button>:""}
+                    </div>:""
+                   }
             </div>
 
             <div className="like icon">
@@ -50,13 +57,7 @@ function Cards({ books, published_date, isfav, deleteData, reading, completed, c
                 }
             </div>
            
-           
-            {reading?<div className="btn-co2">
-                     
-              {  !isFinished? <button className="btn btn-prim" onClick={(e) => completed(books?.primary_isbn10 || books?.isbns[0].isbn10 || books.isbn13[0])}>completed</button>:""}
-                     <button className="btn btn-sec"  onClick={(e)=>comment(books?.primary_isbn10 || books?.isbns[0].isbn10 || books.isbn13[0])}>comment</button>
-             </div>:""
-            }
+          
 
 
         </div>

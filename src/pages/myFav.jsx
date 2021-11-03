@@ -16,7 +16,6 @@ function MyFav() {
         const getData = async () => {
             const querySnapshot = await getDocs(collection(db, `Favorite/${currentUser?.uid}`,"favorite"));
             querySnapshot.forEach((doc) => {
-                console.log(doc)
                 setbook(old =>[...old,doc.data().book]);
             });
         }

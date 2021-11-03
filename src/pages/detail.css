@@ -75,3 +75,14 @@ overflow-y: hidden;
     margin-top: 100px;
     text-align: center;
 }
+
+
+@media (max-width: 768px){
+    .detail-section{
+        flex-direction: column;
+    }
+    .buy-list{
+        flex-direction: row;
+ 
+    }
+}

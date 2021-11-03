@@ -84,14 +84,15 @@ function Detail() {
                         <div className="date"><b>publisher:</b> {book.publisher ||book.byline}</div>
                     </div>
                     <div className="btn-co1">
-                       <button className="btn btn-prim" onClick={(e)=>addToRead(book)}>Add To Read</button>
-                        <button className="btn btn-sec" onClick={(e)=>AddToFav(book)}>Add to Fav</button>
+                       <button className="btn-custom btn-prim" onClick={(e)=>addToRead(book)}>Add To Read</button>
+                        <button className="btn-custom btn-sec" onClick={(e)=>AddToFav(book)}>Add to Fav</button>
                         </div>
                         <ToastContainer />
 
-                </div>
-              {book.buy_links?  <div className="buy-list">
-                    <h3>Buy Links</h3> <br/>
+                    </div>
+                 
+
+              {book.buy_links? <><h3>Buy Links</h3> <div className="buy-list">
                 {
                             book?.buy_links?.map(l => {
                                 if (l.name === 'Amazon')
@@ -110,8 +111,11 @@ function Detail() {
                                 //  return <div>{ l.name}</div>
                             
                             })
-                }
-                </div>:<></>}
+                        }
+                        
+                    </div>
+                        </>
+                        : <></>}
                 </div>
                 {relatedBook?.length > 0 ?<div className="related">
                     
