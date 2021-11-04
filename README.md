@@ -6,11 +6,11 @@
 
 ## **Table of content 🗜️**
 
-- [Introduction](#introduction-🔥)
-- [The Project](#the-project-🎃)
-- [Future](#future-🔭)
-- [Technologies](#technologies-👨‍💻)
-- [Screenshots](#screenshots-📷)
+- [Introduction](#introduction-)
+- [The Project](#the-project-)
+- [Future](#future-)
+- [Technologies](#technologies-)
+- [Screenshots](#screenshots-)
 - [Features](#features)
     - [Login or Register](#login-or-regiter)
     - [book Search](#book-search)
