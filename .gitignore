@@ -10,7 +10,8 @@
 .firebase
 # production
 /build
-
+firestore.indexes.json
+firestore.rules
 # misc
 .DS_Store
 .env.local

@@ -1,147 +1,165 @@
-.register-container{
-display: flex;
-align-items: center;
-justify-content: center;
-margin: auto;
-height: 550px;
-width: 60%;
-box-shadow: 10px 5px 5px rgba(221, 221, 221, 0.103);
-border-radius: 25px ;
-/* background: #4CAF50; */
-margin-top: 30px;
-position: relative;
+.register-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	height: 550px;
+	width: 60%;
+	box-shadow: 10px 5px 5px rgba(221, 221, 221, 0.103);
+	border-radius: 25px;
+	/* background: #4CAF50; */
+	margin-top: 30px;
+	position: relative;
 }
-.left-side{
-display:flex;
-width: 50%;
-height: 510px;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-color: #fff;
-border-bottom-left-radius: 25px ;
-border-top-left-radius: 25px ;
+.left-side {
+	display: flex;
+	width: 50%;
+	height: 510px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	border-bottom-left-radius: 25px;
+	border-top-left-radius: 25px;
 
-padding: 20px;
-background: #4CAF50;
-
+	padding: 20px;
+	background: #4caf50;
 }
-.right-side{
-display:flex;
-padding: 20px;
-width: 50%;
-height: 510px;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background:rgb(240, 235, 235);
-border-top-right-radius:25px;
-border-bottom-right-radius:25px;
+.right-side {
+	display: flex;
+	padding: 20px;
+	width: 50%;
+	height: 510px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgb(240, 235, 235);
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
 }
-.form-controls{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-between;
+.form-controls {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: space-between;
 }
-.form-controls input{
-    padding:10px 20px;
-    margin: 10px;
-    border-color:#4CAF50 ;
-    border-radius: 15px;
-
+.form-controls input {
+	padding: 10px 20px;
+	margin: 10px;
+	border-color: #4caf50;
+	border-radius: 15px;
 }
-.lable{
-    text-align:start;
-    font-size:13px;
-    margin-left: 30px;
+.lable {
+	text-align: start;
+	font-size: 13px;
+	margin-left: 30px;
 }
 
-.social-media{
-    display: flex;
-  
+.social-media {
+	display: flex;
 }
-.social-media .icons{
-    margin: 10px;
-    cursor: pointer;
+.social-media .icons {
+	margin: 10px;
+	cursor: pointer;
 }
-.right-side .title{
-    color: #4CAF50;
-    padding:10px;
+.right-side .title {
+	color: #4caf50;
+	padding: 10px;
 }
-.left-side .title{
-    color: #fff;
-    padding:10px;
+.left-side .title {
+	color: #fff;
+	padding: 10px;
 }
-.title{
-    font-size:24px;
-    font-weight: 800;
+.title {
+	font-size: 24px;
+	font-weight: 800;
 }
-.left-side .logo{
-    position: absolute;
-    top: 10px;
-    left:360px;
-
+.left-side .logo {
+	position: absolute;
+	top: 10px;
+	left: 360px;
 }
-
 
 @media (max-width: 768px) {
-  .register-container{
-flex-direction: column;
-    width:90vh;
-margin-top: 240px;
-border-radius:0px;
-  }
-  .left-side .logo{
-    position: absolute;
-    top: -220px;
-    left:40%;
-  }
+	.register-container {
+		flex-direction: column;
+		width: 90vh;
+		margin-top: 240px;
+		border-radius: 0px;
+	}
+	.left-side .logo {
+		position: absolute;
+		top: -220px;
+		left: 40%;
+	}
 }
-
 
 /* toast message */
 #snackbar {
-    visibility: hidden; /* Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #333; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
-  }
-  
-  /* Show the snackbar when clicking on a button (class added with JavaScript) */
-  #snackbar.show {
-    visibility: visible; /* Show the snackbar */
-    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+	visibility: hidden; /* Hidden by default. Visible on click */
+	min-width: 250px; /* Set a default minimum width */
+	margin-left: -125px; /* Divide value of min-width by 2 */
+	background-color: #333; /* Black background color */
+	color: #fff; /* White text color */
+	text-align: center; /* Centered text */
+	border-radius: 2px; /* Rounded borders */
+	padding: 16px; /* Padding */
+	position: fixed; /* Sit on top of the screen */
+	z-index: 1; /* Add a z-index if needed */
+	left: 50%; /* Center the snackbar */
+	bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+	visibility: visible; /* Show the snackbar */
+	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
     However, delay the fade out process for 2.5 seconds */
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  }
-  
-  /* Animations to fade the snackbar in and out */
-  @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
-  
-  @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}

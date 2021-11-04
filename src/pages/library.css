@@ -1,17 +1,16 @@
-.library-container{
-    display: flex;
-    flex-direction: column;
- 
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}
-.progress-bar{
-    flex: 1;
-    /* width: 30%; */
+.library-container {
+	display: flex;
+	flex-direction: column;
 
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+.progress-bar {
+	flex: 1;
+	/* width: 30%; */
 }
 
-.mr-b{
-    margin-bottom: 10px;
+.mr-b {
+	margin-bottom: 10px;
 }
