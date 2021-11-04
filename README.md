@@ -88,7 +88,7 @@ List of technology that involves in this project :
 - REACT <img width="20px"  src="https://img.icons8.com/office/50/000000/react.png"/>- The Web Development Framework 
 - Firebase <img width="20px" src="https://img.icons8.com/color/48/000000/google-firebase-console.png"/> - NoSQL database and hosting
 
-## **API**⚙️
+## **API ⚙️**
 
 The API can be found in https://api.nytimes.com/svc/books/v3
 
