@@ -12,7 +12,7 @@
 - [Technologies](#technologies-)
 - [Screenshots](#screenshots-)
 - [Built With](#built-with-)
-- [API](#api-)
+- [API](#api-%EF%B8%8F)
 - [Author](#author)
 - [Blog](#Blog)    
 - [Acknowledgments](#acknowledgements)
